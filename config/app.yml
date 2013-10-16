@@ -1,0 +1,12 @@
+all:
+  errbit:
+    enabled          : true
+    api_key          : 'YOUR API KEY'
+    host             : 'YOUR ERRBIT HOST, OR api.airbrake.io FOR AIRBRAKE'  
+    
+# optional parameters below (uncomment if needed)
+
+#    port              : 80
+#    secure            : false
+#    params_filters    : => array('/password/', '/card_number/'),
+#    backtrace_filters : => array('#/some/long/path#' => '')
