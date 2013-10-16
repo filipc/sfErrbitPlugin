@@ -21,7 +21,7 @@ $this->enablePlugins('sfErrbitPlugin');
 
 ```
 
-2. Setup Errbit configuration
+3. Setup Errbit configuration
 
 To setup an Errbit instance you need to configure it with an array of parameters. 
 Only two of them are mandatory.
@@ -44,6 +44,32 @@ all:
 #    backtrace_filters : => array('#/some/long/path#' => '')
 
 ```
+
+4. Enable loggin in all environment
+
+ By default Symfony throws exception only in 'dev' environment.
+ You can enable logs in all environments by enabling our custom logger.
+ 
+``` yml
+
+# /apps/frontend/config/factories.yml
+
+prod:
+  logger:
+    class: sfAggregateLogger
+    param:
+      level: err
+      loggers:
+        sf_file_debug:
+          class: sfFileLogger
+          param:
+            level: err
+            file: %SF_LOG_DIR%/%SF_APP%_%SF_ENVIRONMENT%.log
+        sf_errbit:
+          class: sfErrbitLogger
+          
+```
+This code will enable both: file logging and errbit logging.
 
 ## License & Copyright
 
