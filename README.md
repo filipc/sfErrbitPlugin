@@ -10,23 +10,21 @@ This plugin allows to connect existing Symfony 1.4 application to [Errbit](https
 
 ## Usage
 
-1. Place source of plugin into /plugins directory of your Symfony 1.4 project
+#####1. Place source of plugin into /plugins directory of your Symfony 1.4 project
+#####2. Enable plugin in Symfony ProjectConfiguration class
 
-2. Enable plugin in Symfony ProjectConfiguration class
-
-``` php
+```php
 // /config/ProjectConfiguration.class.php
 
 $this->enablePlugins('sfErrbitPlugin');
 
 ```
 
-3. Setup Errbit configuration
+#####3. Setup Errbit configuration
 
 To setup an Errbit instance you need to configure it with an array of parameters. 
 Only two of them are mandatory.
-
-``` yml
+```yml
 # /plugins/sfErrbitPlugin/config/app.yml
 
 
@@ -44,12 +42,10 @@ all:
 #    backtrace_filters : => array('#/some/long/path#' => '')
 
 ```
-
-4. Enable loggin in all environment
+#####4. Enable loggin in all environment
 
  By default Symfony throws exception only in 'dev' environment.
  You can enable logs in all environments by enabling our custom logger.
- 
 ``` yml
 
 # /apps/frontend/config/factories.yml
@@ -69,6 +65,7 @@ prod:
           class: sfErrbitLogger
           
 ```
+
 This code will enable both: file logging and errbit logging.
 
 ## License & Copyright
